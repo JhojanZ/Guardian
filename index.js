@@ -20,7 +20,7 @@ client.once('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
   
-  const canalesPermitidos = ['1310472176381595708']; 
+  const canalesPermitidos = process.env.CHANNEL_IDS.split(',');
   if (!canalesPermitidos.includes(message.channel.id)) return;
 
   // wawa
