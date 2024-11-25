@@ -13,7 +13,8 @@ const client = new Client({
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
 const canalesPermitidos = process.env.CHANNEL_IDS.split(',').map(id => id.trim());
-const letrasProhibidas = /^[<:@]|^[wa\s]+$/i; // wawa
+//const letrasProhibidas = /^[<:@]|^[wa\sáàäâãåąæā*\|".,:;\-_¡!¿?]+$/i; // wawa
+const letrasProhibidas = /^[<:@]|^[wa\sáàäâãåąæā*\|"'.:;,\-_¡!¿?]+$/i;
 
 const mensajeGuardian = `**¡Atención! El Guardián ha observado tus actos y decreta lo siguiente:** 
 
