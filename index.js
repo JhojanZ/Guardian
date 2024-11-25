@@ -12,6 +12,15 @@ const client = new Client({
 });
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
+const canalesPermitidos = process.env.CHANNEL_IDS.split(',').map(id => id.trim());
+const letrasProhibidas = /^[<:@]|^[wa\s]+$/i; // wawa
+
+const mensajeGuardian = `**¡Atención! El Guardián ha observado tus actos y decreta lo siguiente:** 
+
+En este espacio sagrado, solo son permitidos los Gato-Babosas, y la única palabra autorizada es "Wa". Cualquier incumplimiento de esta única regla resultará en un Aislamiento de 1 minuto. Respeta el orden establecido.
+
+- **El Guardián**`;
+
 
 client.once('ready', () => {
   console.log(`Bot conectado como ${client.user.tag}`);
@@ -20,12 +29,12 @@ client.once('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
   
-   const canalesPermitidos = process.env.CHANNEL_IDS.split(',').map(id => id.trim());
+   
   if (!canalesPermitidos.includes(message.channel.id)) return;
 
-  // wawa
-  const letrasProhibidas = /^[<|:|@]|^[wa]+$/i; 
-  
+
+const palabras = message.content.split();
+const palabraProhibida = palabras.find(palabra => letrasProhibidas.test(palabra));
 
   if (!letrasProhibidas.test(message.content)) {
     try {
@@ -34,7 +43,7 @@ client.on('messageCreate', async (message) => {
       //await message.reply(`¡Querido ser, el guardian ha visto tus actos, y solo son permitidos SLUGCATS.\n Y solo es permitido la palabra wa en este reino del chat!`);
 
       // Envíar el mensaje al md
-      await message.author.send('¡Querido ser, el guardian ha visto tus actos, y solo son permitidos SLUGCATS.\n Y solo es permitido la palabra wa en este reino del chat!');
+      await message.author.send(mensajeGuardian);
       
       await message.delete();
       console.log('Mensaje eliminado por usar letra prohibida');
