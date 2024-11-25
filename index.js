@@ -24,9 +24,10 @@ client.on('messageCreate', async (message) => {
   if (!canalesPermitidos.includes(message.channel.id)) return;
 
   // wawa
-  const letrasProhibidas = /[b-vx-z]/i; 
+  const letrasProhibidas = /^[<|:|@]|^[wa]+$/i; 
+  
 
-  if (letrasProhibidas.test(message.content)) {
+  if (!letrasProhibidas.test(message.content)) {
     try {
       // 1000ms = 1s
       await message.member.timeout(1 * 1000, 'No hablo wawalang en wawa general');
@@ -39,7 +40,7 @@ client.on('messageCreate', async (message) => {
       console.log('Mensaje eliminado por usar letra prohibida');
       
       
-      const logMessage = `[${new Date().toLocaleString()}] - Usuario silenciado: ${message.author.tag} (ID: ${message.author.id})\n`;
+      const logMessage = `[${new Date().toLocaleString()}]\n Mensaje: ${message.content} \n Usuario silenciado: ${message.author.tag} (ID: ${message.author.id})\n\n`;
       console.log(logMessage);
 
       
@@ -51,7 +52,7 @@ client.on('messageCreate', async (message) => {
       
     } catch (error) {
       console.error('Error al aplicar timeout:', error);
-      await message.reply('No pude silenciarte debido a un error.');
+      await message.reply(`No pude silenciarte debido a un error.\n Mensaje: ${message.content}`);
     }
   }
 });
