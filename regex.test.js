@@ -89,6 +89,27 @@ test('Detecta formato corecta de canal espaciado', () => {
   expect(validarWawa("#__hola__")).toBe(true);
 });
 
+test('Abuso doble puntos', () => {
+  expect(validarWawa("::: :: ::::: :")).toBe(true);
+});
+
+// nitro
+test('<:Guardian_infobox_image:1310694339147731004>', () => {
+  expect(validarWawa("<:Guardian_infobox_image:1310694339147731004>")).toBe(true);
+});
+test('Emoji animado nitro', () => {
+  expect(validarWawa("<a:speardance:1300802845385298010>")).toBe(true);
+});
+
+test('Emoji INV nitro', () => {
+  expect(validarWawa("<:inv_troste:1300490580110868482>")).toBe(true);
+});
+
+test('emoji + emoji nitro', () => {
+  expect(validarWawa(":si <:inv_troste:1300490580110868482>")).toBe(true);
+});
+
+
 
 test('Detecta formato incompleto ":test"', () => {
   expect(validarWawa(":test")).toBe(true);
@@ -137,7 +158,7 @@ test('Detecta oracion con emoji "wa wa 🌋 waaaa"', () => {
 
 // Pruebas que deben ser falsas
 test('Rechaza números "123"', () => { //kill me
-  expect(validarWawa("123")).toBe(true);
+  expect(validarWawa("123")).toBe(false);
 });
 
 test('Rechaza palabra incorrecta "WAI"', () => {
@@ -161,7 +182,7 @@ test('Rechaza mezcla inválida con emoji "waaaa :waaw i"', () => {
 });
 
 test('Rechaza mezcla con números "waa123aa :waaw "', () => { //kill me
-  expect(validarWawa("waa123aa :waaw ")).toBe(true  );
+  expect(validarWawa("waa123aa :waaw ")).toBe(false  );
 });
 
 test('Rechaza formato incorrecto "hola:mundo"', () => {

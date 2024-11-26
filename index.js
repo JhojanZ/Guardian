@@ -13,7 +13,7 @@ const client = new Client({
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
 const CANALES_WAWA = process.env.CHANNEL_IDS.split(',').map(id => id.trim());
-const REGEX_WAWA = /^(?:\p{Emoji}*|^[<:@#]\w+$|[wa\sáàäâãåąæā+\\\|"'.:;,\-_¡!¿?]+|\B:[^\s]+(?=\s|$))*$/iu; //wawa
+const REGEX_WAWA = /^(?:([\u{1F300}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F600}-\u{1F64F}]|<(a)?:\w+:\d+>)*|^[<:@#]\w+$|[wa\sáàäâãåąæā+\\\|"'.:;,\-_¡!¿?]+|\B:[^\s]+(?=\s|$))*$/iu;
 
 const MENSAJE_WAWA = 
 `---------------------------------------------------------------------------
@@ -28,7 +28,7 @@ client.once('ready', () => {
   console.log(`Bot conectado como ${client.user.tag}`);
 });
 
-client.on('messageCreate', async (message) => {
+async function validarMensaje(message){
   if (message.author.bot) return;
 
   if (!CANALES_WAWA.includes(message.channel.id)) return;
@@ -61,7 +61,18 @@ client.on('messageCreate', async (message) => {
       await message.reply(`No pude silenciarte debido a un error.\n Mensaje: ${message.content}`);
     }
   }
-});
+};
+
+// Escuchar mensajes nuevos
+client.on('messageCreate', validarMensaje);
+
+// Escuchar mensajes editados
+client.on('messageUpdate', async (oldMessage, newMessage) => {
+  // Evitar errores con mensajes eliminados o embeds
+  if (!newMessage.partial) {
+    await validarMensaje(newMessage);
+  }
+}); 
 
 
 client.login(TOKEN);
