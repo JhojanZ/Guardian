@@ -24,7 +24,7 @@ module.exports = async function canalWawa(message){
         console.log('Mensaje eliminado por usar letra prohibida');
         
         
-        const logMessage = `[${new Date().toLocaleString()}]\n Mensaje: ${message.content} \n Usuario silenciado: ${message.author.tag} (ID: ${message.author.id})\n\n`;
+        const logMessage = `[${new Date().toLocaleString()}] - [CANAL WAWA]\n Mensaje: ${message.content} \n Usuario silenciado: ${message.author.tag} (ID: ${message.author.id})\n\n`;
         console.log(logMessage);
   
         
