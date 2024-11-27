@@ -1,0 +1,15 @@
+# Lista TO-DO para el Bot Guardian
+
+## Nuevas Funciones a Implementar
+- [ ] Economia
+
+## Mejoras
+- [ ] Mejorar el Regex del wawa
+- [ ] Corregir Pruebas Unitarias
+- [ ] Mejorar Mensajes de Silencio en Cadenas
+
+## Bugs to Fix
+- [ ] 
+
+## Documentation
+- [ ] Crear el ReadMe.md

@@ -1,0 +1,6 @@
+||| Para usarlo, cree tus propias ID, y renombre este archivo a ".env" y elimine este comentario |||
+
+DISCORD_BOT_TOKEN=
+
+CHANNEL_WAWA_IDS=
+CHANNEL_CADENAS_IDS=

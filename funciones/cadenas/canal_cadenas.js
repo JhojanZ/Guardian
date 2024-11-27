@@ -5,7 +5,7 @@ module.exports = async function canalCadenas(message) {
   if (message.content !== ultimoMensaje) {
     try {
       // minutos * segundos * ms
-      await message.member.timeout(1 * 5 * 1000, 'El mensaje no coincide con el anterior');
+      await message.member.timeout(5 * 60 * 1000, 'El mensaje no coincide con el anterior');
       await message.author.send('rompiste la cadena, ahora afrontad las consecuencias');
 
       const logMessage = `[${new Date().toLocaleString()}] - [CANAL CADENAS]: ${message.id}\nUsuario silenciado: ${message.author.tag} (ID: ${message.author.id})\nMensaje: ${message.content}\n`;

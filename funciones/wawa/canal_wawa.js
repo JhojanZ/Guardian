@@ -14,14 +14,14 @@ module.exports = async function canalWawa(message){
     if (!REGEX_WAWA.test(message.content)) {
       try {
         // 1000ms = 1s
-        await message.member.timeout(1 * 1000, 'No hablo wawalang en wawa general');
+        await message.member.timeout(1 * 60 * 1000, 'No hablo wawalang en wawa general');
         //await message.reply(`¡Querido ser, el guardian ha visto tus actos, y solo son permitidos SLUGCATS.\n Y solo es permitido la palabra wa en este reino del chat!`);
   
         // Envíar el mensaje al md
         await message.author.send(MENSAJE_WAWA);
         
         await message.delete();
-        console.log('Mensaje eliminado por usar letra prohibida');
+        console.log('Mensaje eliminado por no hablar wawa');
         
         
         const logMessage = `[${new Date().toLocaleString()}] - [CANAL WAWA]: ${message.id}\n Mensaje: ${message.content} \n Usuario silenciado: ${message.author.tag} (ID: ${message.author.id})\n\n`;
