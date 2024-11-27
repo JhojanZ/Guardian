@@ -12,4 +12,4 @@
 - [ ] 
 
 ## Documentation
-- [ ] Crear el ReadMe.md
+- [ ] Mejorar el ReadMe.md
