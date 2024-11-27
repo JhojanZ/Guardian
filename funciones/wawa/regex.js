@@ -4,7 +4,7 @@ Debe Aceptar:
 - wa
 - emojis
 - emoji discord
-- menciones, canales
+- menciones, canales MIT
 
 - rechazar todo lo demas
 */
