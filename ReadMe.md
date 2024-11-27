@@ -4,11 +4,8 @@ Guardian es un bot de Discord diseñado para ayudar a moderar y gestionar tu ser
 
 ## Características
 
-- **Moderación**: Herramientas para silenciar, expulsar y banear usuarios.
-- **Automatización**: Respuestas automáticas a comandos específicos.
-- **Notificaciones**: Alertas y notificaciones personalizables.
-- **Comandos Personalizados**: Crea y gestiona tus propios comandos.
-
+- **Moderación**: Herramientas para silenciar por romper alguna regla de un canal espeficiado
+- **En progreso**: Economia
 ## Instalación
 
 1. Clona este repositorio:
