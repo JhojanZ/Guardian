@@ -39,7 +39,11 @@ client.on('messageCreate', async (message) => {
 client.on('messageUpdate', async (oldMessage, newMessage) => {
   // Evitar errores con mensajes eliminados o embeds
   if (!newMessage.partial) {
-    await canalWAWA(newMessage);
+    if (CANALES_WAWA.includes(message.channel.id)) {
+      await canalWAWA(message);
+    } else if (CANALES_CADENA.includes(message.channel.id)) {
+      await canalCadenas(message);
+    }
   }
 }); 
 
