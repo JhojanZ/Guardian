@@ -2,7 +2,7 @@ const fs = require('fs');
 let ultimoMensaje = ''; 
 
 module.exports = async function canalCadenas(message) {
-  if (message.content !== ultimoMensaje) {
+  if (message.content !== ultimoMensaje && ultimoMensaje !== '') {
     try {
       // minutos * segundos * ms
       await message.member.timeout(5 * 60 * 1000, 'El mensaje no coincide con el anterior');
