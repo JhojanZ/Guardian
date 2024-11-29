@@ -1,6 +1,6 @@
 # Guardian Bot
 
-Guardian es un bot de Discord diseñado para ayudar a moderar y gestionar tu servidor de Discord de manera eficiente.
+Guardian es un bot de Discord diseñado para el servidor de Rain World en Español.
 
 ## Características
 
