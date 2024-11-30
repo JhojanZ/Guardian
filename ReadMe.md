@@ -26,7 +26,7 @@ Guardian es un bot de Discord diseñado para el servidor de Rain World en Españ
 1. Configura el archivo `.env` con tus credenciales de Discord.
 2. Inicia el bot:
     ```bash
-    npm start
+    node index.js
     ```
 
 ## Contribuciones
