@@ -6,10 +6,9 @@
 ## Mejoras
 - [ ] Mejorar el Regex del wawa
 - [ ] Corregir Pruebas Unitarias
-- [ ] Mejorar Mensajes de Silencio en Cadenas
 
 ## Bugs to Fix
-- [ ] 
+- [ ] Las menciones en wawa
 
 ## Documentation
 - [ ] Mejorar el ReadMe.md
