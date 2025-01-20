@@ -72,4 +72,5 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para má
 
 ## Contacto
 
-Para más información, contáctame en Discord: j_sanchez10
+Para más información, contáctame en Discord: sevenredsun_s
+
